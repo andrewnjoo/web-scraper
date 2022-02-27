@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 
 html_text = requests.get(
-    'https://weworkremotely.com/categories/remote-full-stack-programming-jobs').text
+    'https://weworkremotely.com/categories/remote-front-end-programming-jobs').text
 # print(html_text)
 soup = BeautifulSoup(html_text, 'lxml')
 jobs = soup.find_all('li', class_='feature')
