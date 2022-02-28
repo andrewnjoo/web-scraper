@@ -3,6 +3,8 @@ import requests
 import csv
 import re
 
+# Get data from webpage
+
 html_text = requests.get(
     'https://ashidakim.com/zenkoans/').text
 soup = BeautifulSoup(html_text, 'lxml')
@@ -12,7 +14,7 @@ links = list(filter(lambda x: x['href'].startswith(
 for i, link in enumerate(links):
     links[i] = link['href']
 
-# # human sorting helper function
+# 'Human Sorting' helper function
 
 
 def atof(text):
@@ -35,6 +37,8 @@ def natural_keys(text):
 
 links.sort(key=natural_keys)
 print(links)
+
+# Write to file
 
 with open("output.csv", "w", newline='') as csvfile:
     writer = csv.writer(csvfile)
